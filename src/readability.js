@@ -99,6 +99,8 @@ var readability = {
         var articleContent = readability.grabArticle();
         var articleFooter  = readability.getArticleFooter();
 
+        console.log(articleContent.outerHTML);
+
         if(!articleContent) {
             articleContent    = document.createElement("DIV");
             articleContent.id = "readability-content";
@@ -115,7 +117,7 @@ var readability = {
         innerDiv.id             = "readInner";
 
         /* Apply user-selected styling */
-        document.body.className = readStyle;
+        /*document.body.className = readStyle;
         document.dir            = readability.getSuggestedDirection(articleTitle.innerHTML);
 
         if (readStyle === "style-athelas" || readStyle === "style-apertura"){
@@ -128,7 +130,7 @@ var readability = {
 
         if(typeof(readConvertLinksToFootnotes) !== 'undefined' && readConvertLinksToFootnotes === true) {
             readability.convertLinksToFootnotes = true;
-        }
+        }*/
 
         /* Glue the structure of our document together. */
         innerDiv.appendChild( articleTitle   );
@@ -168,9 +170,9 @@ var readability = {
         window.scrollTo(0, 0);
 
         /* If we're using the Typekit library, select the font */
-        if (readStyle === "style-athelas" || readStyle === "style-apertura") {
+        /*if (readStyle === "style-athelas" || readStyle === "style-apertura") {
             readability.useRdbTypekit();
-        }
+        }*/
 
         if (nextPageLink) {
             /**
