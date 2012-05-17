@@ -89,7 +89,7 @@ var readability = {
         /* Pull out any possible next page link first */
         var nextPageLink = readability.findNextPageLink(document.body);
         
-        readability.prepDocument();
+        //readability.prepDocument();
 
         /* Build readability's DOM tree */
         var overlay        = document.createElement("DIV");
@@ -100,6 +100,7 @@ var readability = {
         var articleFooter  = readability.getArticleFooter();
 
         console.log(articleContent.outerHTML);
+        return;
 
         if(!articleContent) {
             articleContent    = document.createElement("DIV");
@@ -116,21 +117,6 @@ var readability = {
         overlay.id              = "readOverlay";
         innerDiv.id             = "readInner";
 
-        /* Apply user-selected styling */
-        /*document.body.className = readStyle;
-        document.dir            = readability.getSuggestedDirection(articleTitle.innerHTML);
-
-        if (readStyle === "style-athelas" || readStyle === "style-apertura"){
-            overlay.className = readStyle + " rdbTypekit";
-        }
-        else {
-            overlay.className = readStyle;
-        }
-        innerDiv.className    = readMargin + " " + readSize;
-
-        if(typeof(readConvertLinksToFootnotes) !== 'undefined' && readConvertLinksToFootnotes === true) {
-            readability.convertLinksToFootnotes = true;
-        }*/
 
         /* Glue the structure of our document together. */
         innerDiv.appendChild( articleTitle   );
@@ -151,28 +137,9 @@ var readability = {
             readOverlay.style.overflow = 'auto';
         }
 
-        /**
-         * If someone tries to use Readability on a site's root page, give them a warning about usage.
-        **/
-        if((window.location.protocol + "//" + window.location.host + "/") === window.location.href)
-        {
-            articleContent.style.display = "none";
-            var rootWarning = document.createElement('p');
-                rootWarning.id = "readability-warning";
-                rootWarning.innerHTML = "<em>Readability</em> was intended for use on individual articles and not home pages. " +
-                    "If you'd like to try rendering this page anyway, <a onClick='javascript:document.getElementById(\"readability-warning\").style.display=\"none\";document.getElementById(\"readability-content\").style.display=\"block\";'>click here</a> to continue.";
-
-            innerDiv.insertBefore( rootWarning, articleContent );
-        }
 
         readability.postProcessContent(articleContent);
 
-        window.scrollTo(0, 0);
-
-        /* If we're using the Typekit library, select the font */
-        /*if (readStyle === "style-athelas" || readStyle === "style-apertura") {
-            readability.useRdbTypekit();
-        }*/
 
         if (nextPageLink) {
             /**
@@ -184,36 +151,6 @@ var readability = {
             }, 500);
         }
 
-        /** Smooth scrolling **/
-        document.onkeydown = function(e) {
-            var code = (window.event) ? event.keyCode : e.keyCode;
-            if (code === 16) {
-                readability.reversePageScroll = true;
-                return;
-            }
-
-            if (code === 32) {
-                readability.curScrollStep = 0;
-                var windowHeight = window.innerHeight ? window.innerHeight : (document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight);
-
-                if(readability.reversePageScroll) {
-                    readability.scrollTo(readability.scrollTop(), readability.scrollTop() - (windowHeight - 50), 20, 10);                   
-                }
-                else {
-                    readability.scrollTo(readability.scrollTop(), readability.scrollTop() + (windowHeight - 50), 20, 10);                   
-                }
-                
-                return false;
-            }
-        };
-        
-        document.onkeyup = function(e) {
-            var code = (window.event) ? event.keyCode : e.keyCode;
-            if (code === 16) {
-                readability.reversePageScroll = false;
-                return;
-            }
-        };
     },
 
     /**
