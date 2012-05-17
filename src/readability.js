@@ -99,8 +99,11 @@ var readability = {
         var articleContent = readability.grabArticle();
         var articleFooter  = readability.getArticleFooter();
 
-        console.log(articleContent.outerHTML);
-        return;
+        var result = { title: articleTitle.outerHTML,
+                     content: articleContent.outerHTML,
+                      footer: articleFooter.outerHTML };
+        //console.log(articleContent.outerHTML);
+        return result;
 
         if(!articleContent) {
             articleContent    = document.createElement("DIV");
@@ -1761,4 +1764,4 @@ var readability = {
     
 };
 
-readability.init();
+console.log(readability.init());
