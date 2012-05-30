@@ -1764,4 +1764,3 @@ var readability = {
     
 };
 
-console.log(readability.init());
