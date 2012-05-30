@@ -11,7 +11,7 @@ var client = remoteStorage.createClient(storageInfo, "tutorial", token);
 
 var value = readability.init(); 
 console.log(value);
-var content = value.content;
+var content = JSON.stringify(value);
 var key = "text";
 client.put(key, content, function(error) {
   if (error) {
