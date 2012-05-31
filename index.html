@@ -13,8 +13,8 @@
 
   <body>
     <div class="container">
-      <img src="images/remotestorage.png" alt="remoteStorage" class="remotestorage" />
-      <h1>Unpapered</h1>
+      <!--<img src="images/remotestorage.png" alt="remoteStorage" class="remotestorage" />
+      --><h1>Unpapered</h1>
 
       <section id="intro">
         an unhosted Instapaper clone
@@ -33,29 +33,33 @@
           <input type="submit" id="disconnect" value="Disconnect" class="hidden" />
           <input type="submit" id="authorize" value="Authorize access" />
           <input type="submit" id="deauthorize" value="Deauthorize access" class="hidden" />
-          <img src="images/spinner.gif" id="connectionSpinner" class="hidden" />
+          <!--<img src="images/spinner.gif" id="connectionSpinner" class="hidden" />
+          -->
         </p>
       </section>
 
-      <!-- <section id="public_storage">
+      <section id="public_storage">
         <h2 id="publicTitle">Read access for "public" category</h2>
         <p>
           <label for="publicKey">Key:</label>
-          <input type="text" id="publicKey" value="foo" />
-          <input type="submit" id="fetchPublicKey" value="Fetch" />
-          <img src="images/spinner.gif" id="fetchPublicSpinner" class="hidden" />
+          <!--<input type="text" id="publicKey" value="foo" />-->
+          <input type="submit" id="fetchText" value="Fetch" />
+          <!--<img src="images/spinner.gif" id="fetchPublicSpinner" class="hidden" />
+          -->
         </p>
         <p>
-          <label for="publicValue">Value:</label>
-          <input type="text" id="publicValue" />
+          <label for="publicValue">title</label>
+          <div id="dataTitle"></div>
+          <div id="dataContent"></div>
         </p>
         <p>
           <input type="submit" id="publishPublic" value="Save" />
-          <img src="images/spinner.gif" id="publishPublicSpinner" class="hidden" />
+          <!--<img src="images/spinner.gif" id="publishPublicSpinner" class="hidden" />
+          -->
         </p>
       </section>
 
-      <section id="private_storage">
+      <!-- <section id="private_storage">
         <h2>Read/write access for "tutorial" category</h2>
         <p>
           <label for="tutorialKey">Key:</label>

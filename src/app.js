@@ -23,27 +23,29 @@
     })
 
     $('#authorize').on('click', function() {
-      storage.authorize(['public', 'tutorial']);
+      storage.authorize(['public', 'tutorial', 'text']);
       return false;
     });;
 
-    /*$('#fetchPublicKey').on('click', function() {
+    $('#fetchText').on('click', function() {
       var key = $('#publicKey').val();
 
-      helper.showSpinner('fetchPublicSpinner');
+      //helper.showSpinner('fetchPublicSpinner');
 
-      storage.getData('public', key, function(error, data) {
+      storage.getData('tutorial', 'text', function(error, data) {
         if(!error && data != "null") {
-          $('#publicValue').val(data);
+          d = JSON.parse(data);
+          $('#dataTitle').html(d.title);
+          $('#dataContent').html(d.content);
         }
 
-        helper.hideSpinner('fetchPublicSpinner');
+        //helper.hideSpinner('fetchPublicSpinner');
       });
 
       return false;
     });
 
-    $('#publishPublic').on('click', function() {
+    /*$('#publishPublic').on('click', function() {
       var key = $('#publicKey').val();
       var value = $('#publicValue').val();
 
