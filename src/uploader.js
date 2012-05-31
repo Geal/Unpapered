@@ -1,10 +1,10 @@
-var storageInfo = {"type":"pds-remotestorage-00#simple",
-                   "href":"https://5apps.com/storage/geal",
+var storageInfo = {"type":"pds-remotestorage-00#webdav",
+                   "href":"https://owncube.com/apps/remoteStorage/WebDAV.php/geal/remoteStorage",
                    "auth":{"type":"pds-oauth2-00",
-                           "href":"https://5apps.com/oauth/geal"},
-                   "rel":"pds-remotestorage-00#simple"};
-var token = "87de1829c9ddda04e65b50e404b00ce1";
-var user = "geal@5apps.com";
+                           "href":"https://owncube.com/apps/remoteStorage/auth.php/geal"},
+                   "rel":"pds-remotestorage-00#webdav"};
+var token = "cmVtb3RlU3RvcmFnZTo0ZmM3ZTBlNGI2Yjc4";
+var user = "geal@owncube.com";
 
 console.log(token);
 var client = remoteStorage.createClient(storageInfo, "tutorial", token);
