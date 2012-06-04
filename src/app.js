@@ -23,7 +23,7 @@
     })
 
     $('#authorize').on('click', function() {
-      storage.authorize(['public', 'tutorial', 'text']);
+      storage.authorize(['unpapered']);
       return false;
     });;
 
