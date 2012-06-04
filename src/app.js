@@ -32,15 +32,21 @@
 
       //helper.showSpinner('fetchPublicSpinner');
 
-      storage.getData('tutorial', 'text', function(error, data) {
-        if(!error && data != "null") {
-          d = JSON.parse(data);
-          $('#dataTitle').html(d.title);
-          $('#dataContent').html(d.content);
+      storage.getData('unpapered', 'index', function(error, data) {
+        if(error)
+          console.log(error)
+        else {
+          var index = JSON.parse(data)
+          var key = index[1]
+          storage.getData('unpapered', key, function(error, data) {
+            if(!error && data != "null") {
+              var d = JSON.parse(data);
+              $('#dataTitle').html(d.title);
+              $('#dataContent').html(d.content);
+            }
+          })
         }
-
-        //helper.hideSpinner('fetchPublicSpinner');
-      });
+      })
 
       return false;
     });
