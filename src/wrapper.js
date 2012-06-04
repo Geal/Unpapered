@@ -104,6 +104,24 @@ var wrapper = (function() {
     });
   }
 
+  function deleteData(category, key, callback) {
+    var storageInfo = JSON.parse(localStorage.getItem('userStorageInfo'));
+    var token = localStorage.getItem('bearerToken');
+    var client = remoteStorage.createClient(storageInfo, category, token);
+
+    client.delete(key, function(error) {
+      if (error) {
+        alert('Could not store "' + key + '" in "' + category + '" category');
+        console.log(error);
+      } else {
+        console.log('Stored "' + value + '" for key "' + key + '" in "' + category + '" category');
+      }
+
+      callback(error);
+    });
+  }
+
+
   // Now all that's left is to bind the events from the UI elements to
   // these actions, as can be seen [here](app.html).
 
@@ -112,6 +130,7 @@ var wrapper = (function() {
     authorize: authorize,
     getData:   getData,
     putData:   putData,
+    deleteData: deleteData,
   };
 
 })();

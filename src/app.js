@@ -51,6 +51,31 @@
       return false;
     });
 
+    $('#eraseData').on('click', function() {
+
+      //helper.showSpinner('fetchPublicSpinner');
+
+      storage.getData('unpapered', 'index', function(error, data) {
+        if(error)
+          console.log(error)
+        else {
+          var index = JSON.parse(data)
+          for(var i=0; i<index.length; i++) {
+            storage.deleteData('unpapered', index[i], function(error) {
+              if(error)
+                console.log("couldn't delete element for key="+index[i])
+            })
+          }
+          storage.deleteData('unpapered', 'index', function(error) {
+            if(error)
+              console.log("couldn't delete the index")
+          })
+        }
+      })
+
+      return false;
+    });
+
     /*$('#publishPublic').on('click', function() {
       var key = $('#publicKey').val();
       var value = $('#publicValue').val();
