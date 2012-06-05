@@ -1,13 +1,3 @@
-var storageInfo = {"type": "pds-remotestorage-00#webdav",
-                   "href": "https://owncube.com/apps/remoteStorage/WebDAV.php/geal/remoteStorage",
-                   "auth": {"type": "pds-oauth2-00",
-                           "href": "https://owncube.com/apps/remoteStorage/auth.php/geal"
-                           }
-                  }
-var token = "cmVtb3RlU3RvcmFnZTo0ZmNkMDI1MmM4Y2I3"
-var user = "geal@owncube.com"
-
-
 function uploader(storageInfo, token, user) {
   console.log(token)
   var client = remoteStorage.createClient(storageInfo, "unpapered", token)
@@ -47,4 +37,3 @@ function uploader(storageInfo, token, user) {
 
 }
 
-uploader(storageInfo, token, user);
