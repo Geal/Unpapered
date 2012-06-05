@@ -25,7 +25,17 @@
     $('#authorize').on('click', function() {
       storage.authorize(['unpapered']);
       return false;
-    });;
+    })
+
+    function loadContent(title) {
+      storage.getData('unpapered', title, function(error, data) {
+        if(!error && data != "null") {
+          var d = JSON.parse(data);
+          $('#dataTitle').html(d.title);
+          $('#dataContent').html(d.content);
+        }
+      })
+    }
 
     $('#fetchText').on('click', function() {
       var key = $('#publicKey').val();
@@ -38,13 +48,14 @@
         else {
           var index = JSON.parse(data)
           var key = index[1]
-          storage.getData('unpapered', key, function(error, data) {
+          loadContent(key)
+          /*ùstorage.getData('unpapered', key, function(error, data) {
             if(!error && data != "null") {
               var d = JSON.parse(data);
               $('#dataTitle').html(d.title);
               $('#dataContent').html(d.content);
             }
-          })
+          })*/
         }
       })
 
@@ -83,7 +94,7 @@
         var index = JSON.parse(data)
         var ul = $("#index")
         for(var i=0; i<index.length; i++) {
-          ul.append($('<li>').append(index[i]))
+          ul.append($('<li>').append(index[i]).on('click', function(){loadContent($(this).text())}))
         }
       }
     })
