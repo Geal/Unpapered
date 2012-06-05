@@ -12,30 +12,23 @@
   </head>
 
   <body>
+      <div id="header">
+        <h1>Unpapered</h1>
+        <ul>
+          <li><input type="submit" id="authorize" value="Authorize access" /></li>
+          <li><input type="submit" id="deauthorize" value="Deauthorize access" class="hidden" /></li>
+          <li><input type="submit" id="connect" value="Connect to remoteStorage" /></li>
+          <li><input type="submit" id="disconnect" value="Disconnect" class="hidden" /></li>
+          <li><input type="text" id="userAddress" placeholder="yourusername@5apps.com" /></li>
+          <li><label for="userAddress">Your user address:</label></li>
+          <li><span id="authorizedState">not authorized</span></li>
+          <li><span id="connectionState">disconnected</span></li>
+        </ul>
+      </div>
     <div class="container">
-      <!--<img src="images/remotestorage.png" alt="remoteStorage" class="remotestorage" />
-      --><h1>Unpapered</h1>
 
       <section id="intro">
       <h2>an unhosted Instapaper clone</h2>
-      </section>
-
-      <section id="connection">
-        <div id="states" class="hidden">
-          <span id="connectionState">disconnected</span> |
-          <span id="authorizedState">not authorized</span>
-        </div>
-
-        <p>
-          <label for="userAddress">Your user address:</label>
-          <input type="text" id="userAddress" placeholder="yourusername@5apps.com" />
-          <input type="submit" id="connect" value="Connect to remoteStorage" />
-          <input type="submit" id="disconnect" value="Disconnect" class="hidden" />
-          <input type="submit" id="authorize" value="Authorize access" />
-          <input type="submit" id="deauthorize" value="Deauthorize access" class="hidden" />
-          <!--<img src="images/spinner.gif" id="connectionSpinner" class="hidden" />
-          -->
-        </p>
       </section>
 
       <section id="content">
