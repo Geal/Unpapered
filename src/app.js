@@ -83,21 +83,26 @@
           })
         }
       })
-
-      return false;
+      reloadIndex()
+      return false
     });
 
-    storage.getData('unpapered', 'index', function(error, data) {
-      if(error)
-        console.log(error)
-      else {
-        var index = JSON.parse(data)
-        var ul = $("#index")
-        for(var i=0; i<index.length; i++) {
-          ul.append($('<li>').append(index[i]).on('click', function(){loadContent($(this).text())}))
+    function reloadIndex() {
+      $("#index").empty()
+      storage.getData('unpapered', 'index', function(error, data) {
+        if(error)
+          console.log(error)
+        else {
+          var index = JSON.parse(data)
+          var ul = $("#index")
+          for(var i=0; i<index.length; i++) {
+            ul.append($('<li>').append(index[i]).on('click', function(){loadContent($(this).text())}))
+          }
         }
-      }
-    })
+      })
+    }
+
+    reloadIndex()
     /*$('#publishPublic').on('click', function() {
       var key = $('#publicKey').val();
       var value = $('#publicValue').val();
