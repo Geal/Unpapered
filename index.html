@@ -31,6 +31,12 @@
       <h2>an unhosted Instapaper clone</h2>
       </section>
 
+      <section id="bookmark">
+        <p>Drag this link to your bookmark bar
+          <span id="bookmarklet"></span>
+        </p>
+      </section>
+
       <section id="content">
         <p>
           <input type="submit" id="eraseData" value="RAZ" />
@@ -55,8 +61,5 @@
         </p>
       </section>
 
-      <section id="bookmarklet">
-      javascript:(function(){%20_my_script=document.createElement('script');%20_my_script.type='text/javascript';%20_my_script.src='http://lolcatho.st/src/unpapered.js?'+Math.random();%20_my_script.onload=function(){%20var%20storageInfo%20=%20{"type":%20"pds-remotestorage-00#webdav",%20"href":%20"https://owncube.com/apps/remoteStorage/WebDAV.php/geal/remoteStorage",%20"auth":%20{"type":%20"pds-oauth2-00",%20"href":%20"https://owncube.com/apps/remoteStorage/auth.php/geal"%20}%20};%20var%20token%20=%20"cmVtb3RlU3RvcmFnZTo0ZmNkMDI1MmM4Y2I3";%20var%20user%20=%20"geal@owncube.com";%20uploader(storageInfo,%20token,%20user);%20};%20document.getElementsByTagName('head')[0].appendChild(_my_script);%20})();
-      </section>
   </body>
 </html>

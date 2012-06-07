@@ -103,6 +103,20 @@
     }
 
     reloadIndex()
+
+    function createBookmarklet() {
+      var authData = storage.authData()
+      var bookmarklet = "javascript:(function(){_my_script=document.createElement('script');_my_script.type='text/javascript';_my_script.src='"
+      bookmarklet += location.protocol+"//"+location.host+"/src/unpapered.js"
+      bookmarklet += "?'+Math.random();_my_script.onload=function(){var storageInfo="
+      bookmarklet += authData.storage
+      bookmarklet += ";var token=\""+authData.token+"\""
+      bookmarklet += ";var user=\""+authData.address+"\""
+      bookmarklet += ";uploader(storageInfo,token,user);};document.getElementsByTagName('head')[0].appendChild(_my_script);})();"
+
+      return bookmarklet;
+    }
+    $("#bookmarklet").empty().append($("<a>").attr("href", createBookmarklet()).text("Unhost this"))
     /*$('#publishPublic').on('click', function() {
       var key = $('#publicKey').val();
       var value = $('#publicValue').val();

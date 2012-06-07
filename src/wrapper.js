@@ -121,7 +121,16 @@ var wrapper = (function() {
     });
   }
 
-
+  function authData() {
+    var storageInfo = localStorage.getItem('userStorageInfo');
+    var token = localStorage.getItem('bearerToken');
+    var address = localStorage.getItem('userAddress');
+    return {
+      storage: storageInfo,
+      token: token,
+      address: address
+    }
+  }
   // Now all that's left is to bind the events from the UI elements to
   // these actions, as can be seen [here](app.html).
 
@@ -131,6 +140,7 @@ var wrapper = (function() {
     getData:   getData,
     putData:   putData,
     deleteData: deleteData,
+    authData:  authData
   };
 
 })();
