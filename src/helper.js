@@ -71,7 +71,6 @@ var helper = (function() {
   }
 
   function isAuthorized() {
-    console.log("isAuthorized: "+localStorage.getItem('bearerToken'));
     if(localStorage.getItem('bearerToken') != null) {
       console.log("authorized");
       return true;
