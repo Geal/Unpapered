@@ -116,21 +116,28 @@
           var index = JSON.parse(data)
           var ul = $("#index")
           for(var i=0; i<index.length; i++) {
-            ul.append($('<li>').append(index[i]).on('click',
-                function() {
-                  loadContent($(this).text())
+            var element = $('<li>').append(index[i])
+            var deleteLink = $('<a>').text('X').attr("href", "#").css('float', 'right')
+            deleteLink.on('click',
+              (function() {
+                var id = i
+                return function() {
+                  console.log('trying to delete element '+id)
+                  deleteElement(id)
                 }
-              ).append($('<a>').text('X').attr("href", "#").css('float', 'right').on('click',
-                    (function() {
-                      var id = i
-                      return function() {
-                        console.log('trying to delete element '+id)
-                        deleteElement(id)
-                      }
-                    })()
-                  )
-                )
+              })()
             )
+            element.append(deleteLink)
+            element.on('click',
+                (function() {
+                  var title = index[i]
+                  return function() {
+                    loadContent(title)
+                  }
+                })()
+              )
+
+            ul.append(element)
           }
         }
       })
