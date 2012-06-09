@@ -99,6 +99,8 @@ var readability = {
         var articleContent = readability.grabArticle();
         var articleFooter  = readability.getArticleFooter();
 
+        readability.postProcessContent(articleContent);
+
         var result = { title: articleTitle.outerHTML,
                      content: articleContent.outerHTML,
                       footer: articleFooter.outerHTML };
@@ -163,10 +165,7 @@ var readability = {
      * @return void
     **/
     postProcessContent: function(articleContent) {
-        if(readability.convertLinksToFootnotes && !window.location.href.match(/wikipedia\.org/g)) {
-            readability.addFootnotes(articleContent);
-        }
-
+        readability.convertRelativeLinksToAbsolute(articleContent);
         readability.fixImageFloats(articleContent);
     },
 
@@ -486,6 +485,15 @@ var readability = {
         if(linkCount > 0) {
             footnotesWrapper.style.display = 'block';
         }
+    },
+
+    convertRelativeLinksToAbsolute: function (articleContent) {
+      var articleLinks = articleContent.getElementsByTagName('a');
+      for (var i = 0; i < articleLinks.length; i+=1) {
+        var articleLink  = articleLinks[i];
+        var url = articleLink.href;
+        articleLink.href = url;
+      }
     },
 
     useRdbTypekit: function () {
