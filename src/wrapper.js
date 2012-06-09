@@ -10,7 +10,7 @@ var wrapper = (function() {
   function connect(userAddress, callback) {
     remoteStorage.getStorageInfo(userAddress, function(error, storageInfo) {
       if(error) {
-        alert('Could not load storage info');
+        console.log('Could not load storage info');
         console.log(error);
       } else {
         console.log('Storage info received:');
@@ -70,7 +70,7 @@ var wrapper = (function() {
     // be invoked with an error code and the data.
     client.get(key, function(error, data) {
     if(error) {
-        alert('Could not find "' + key + '" in category "' + category + '" on the remoteStorage');
+        console.log('Could not find "' + key + '" in category "' + category + '" on the remoteStorage');
         console.log(error);
       } else {
         if (data == undefined) {
@@ -94,7 +94,7 @@ var wrapper = (function() {
 
     client.put(key, value, function(error) {
       if (error) {
-        alert('Could not store "' + key + '" in "' + category + '" category');
+        console.log('Could not store "' + key + '" in "' + category + '" category');
         console.log(error);
       } else {
         console.log('Stored "' + value + '" for key "' + key + '" in "' + category + '" category');
@@ -111,7 +111,7 @@ var wrapper = (function() {
 
     client.delete(key, function(error) {
       if (error) {
-        alert('Could not store "' + key + '" in "' + category + '" category');
+        console.log('Could not store "' + key + '" in "' + category + '" category');
         console.log(error);
       } else {
         console.log('Stored "' + value + '" for key "' + key + '" in "' + category + '" category');
