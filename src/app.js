@@ -62,6 +62,8 @@
       return false;
     });
 
+
+    // This should be removed from the production version, replaced by individual item deletion.
     $('#eraseData').on('click', function() {
 
       //helper.showSpinner('fetchPublicSpinner');
