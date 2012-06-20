@@ -40,6 +40,7 @@ html, body {
 }
 
 #index li {
+	position:relative;
   height:2.5em;
   background: #ddd;
   border-bottom:1px solid #e8e8e8;
@@ -51,6 +52,17 @@ html, body {
 #index li:hover {
   background:#fff;
 }
+
+.delete {
+	display:none;
+	position:absolute;
+	top:1em;
+	right:1em;
+	text-decoration:none;
+	color:rgba(100, 100, 100, .5);
+}
+#index li:hover .delete { display:inline; }
+.delete:hover { color:rgba(100, 100, 100, .8); }
 
 #dataTitle {
 	position: absolute;

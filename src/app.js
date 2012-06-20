@@ -119,7 +119,7 @@
           var ul = $("#index")
           for(var i=0; i<index.length; i++) {
             var element = $('<li>').append(index[i])
-            var deleteLink = $('<a>').text('X').attr("href", "#").css('float', 'right')
+            var deleteLink = $('<a>').text('✖').attr("href", "#").addClass('delete')
             deleteLink.on('click',
               (function() {
                 var id = i
