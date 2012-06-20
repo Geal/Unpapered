@@ -7,6 +7,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     vertical-align: baseline;
 }
 
+html, body {
+	background:#eee; color:#000; font:normal 1em FreeSans,Helvetica,sans-serif;
+}
+
 
 #header {
   width: 100%;
@@ -36,17 +40,16 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 #index li {
-  height: 40px;
-  background: lightgray;
-  margin-bottom: 5px;
-  padding-top: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  height:2.5em;
+  background: #ddd;
+  border-bottom:1px solid #e8e8e8;
+  padding:.5em;
   list-style: none;
+  cursor:pointer;
 }
 
 #index li:hover {
-  background: gray;
+  background:#fff;
 }
 
 #dataTitle {
