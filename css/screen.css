@@ -13,7 +13,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   height: 45px;
   margin: 0;
   padding: 0;
-  background: gray;
+  background: rgba(100, 100, 100, .9);
+  position: fixed;
+  z-index: 10;
 }
 
 #header h1 {
@@ -28,8 +30,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 #index {
-  margin: auto;
-  width: 600px;
+	width: 17em;
+	position: fixed;
+	top: 5em;
 }
 
 #index li {
@@ -47,12 +50,20 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 #dataTitle {
-  text-align: center;
-  width: 900px;
-  margin: auto;
+	position: absolute;
+	left: 20em;
+	top: 5em;
 }
 
 #dataContent {
-  width: 900px;
-  margin: auto;
+	width: 60%;
+	position: absolute;
+	left: 20em;
+	top: 8em;
 }
+
+#intro { position:fixed; top:.5em; left:11em; z-index:11; }
+#bookmark { position:fixed; top:3em; }
+
+
+
