@@ -29,7 +29,7 @@ var wrapper = (function() {
   // remoteStorage provider.
   function authorize(categories) {
     var storageInfo = JSON.parse(localStorage.getItem('userStorageInfo'));
-    var redirectUri = location.href + 'receive_token.html';
+    var redirectUri = location.protocol +'//'+ location.host + location.pathname + 'receive_token.html';
 
     // `createOAuthAddress` takes the `storageInfo`, the categories that we
     // intend to access and a redirect URI that the storage provider sends the
