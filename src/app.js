@@ -14,16 +14,12 @@
           localStorage.setItem('userStorageInfo', JSON.stringify(storageInfo));
           localStorage.setItem('userAddress', userAddress);
           helper.setConnectionState(true);
+          storage.authorize(['unpapered']);
         }
 
         helper.hideSpinner('connectionSpinner');
       });
 
-      return false;
-    })
-
-    $('#authorize').on('click', function() {
-      storage.authorize(['unpapered']);
       return false;
     })
 
@@ -166,13 +162,7 @@
       return false;
     });
 
-    $('#deauthorize').on('click', function() {
-      helper.deauthorize();
-      return false;
-    });
-
     helper.setConnectionState(helper.isConnected());
-    helper.setAuthorizedState(helper.isAuthorized());
   });
 
 })(wrapper, helper);
