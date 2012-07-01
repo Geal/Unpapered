@@ -47,6 +47,8 @@ var wrapper = (function() {
       console.log('Received an OAuth token: ' + event.data);
       localStorage.setItem('bearerToken', event.data);
       helper.setAuthorizedState(true);
+      $('#bookmark').show();
+      $('#content').show();
     }
   }, false);
 
