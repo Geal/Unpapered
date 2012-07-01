@@ -141,7 +141,8 @@
       })
     }
 
-    reloadIndex()
+    if(helper.isConnected())
+      reloadIndex()
 
     function createBookmarklet() {
       var authData = storage.authData()
