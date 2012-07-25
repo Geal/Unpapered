@@ -15,8 +15,13 @@ var helper = (function() {
       }
       $('#connectionState').html('connected');
       $('#connect').hide();
+      $('#connect-form').hide();
       $('#disconnect').show();
+      $('#username').html(localStorage.getItem('userAddress'));
+      $('#connect-string').show();
       $('#userAddress').val(localStorage.getItem('userAddress'));
+      $('#bookmark').show();
+      $('#content').show();
     } else {
       for (var i = 0; i < elementIds.length; i++) {
         $('#' + elementIds[i]).attr('disabled', 'disabled');
@@ -25,6 +30,11 @@ var helper = (function() {
       $('#connect').show();
       $('#disconnect').hide();
       $('#userAddress').val('');
+      $('#connect-form').show();
+      $('#connect-string').hide();
+      $('#username').html('');
+      $('#bookmark').hide();
+      $('#content').hide();
       deauthorize();
     }
     $('#connectionState').toggleClass('enabled', connected);
@@ -54,18 +64,10 @@ var helper = (function() {
       for (var i = 0; i < elementIds.length; i++) {
         $('#' + elementIds[i]).removeAttr('disabled');
       }
-      $('#publicTitle').html('Read/write access for "public" category');
-      $('#authorizedState').html('authorized');
-      $('#authorize').hide();
-      $('#deauthorize').show();
     } else {
       for (var i = 0; i < elementIds.length; i++) {
         $('#' + elementIds[i]).attr('disabled', 'disabled');
       }
-      $('#publicTitle').html('Read access for "public" category');
-      $('#authorizedState').html('not authorized');
-      $('#authorize').show();
-      $('#deauthorize').hide();
     }
     $('#authorizedState').toggleClass('enabled', authorized);
   }

@@ -15,14 +15,15 @@
       <div id="header">
         <h1>Unpapered</h1> <span>unhosted bookmarks</span>
         <ul>
-          <li><input type="submit" id="authorize" value="Authorize access" /></li>
-          <li><input type="submit" id="deauthorize" value="Deauthorize access" class="hidden" /></li>
-          <li><input type="submit" id="connect" value="Connect to remoteStorage" /></li>
           <li><input type="submit" id="disconnect" value="Disconnect" class="hidden" /></li>
-          <li><input type="text" id="userAddress" placeholder="yourusername@5apps.com" /></li>
-          <li><label for="userAddress">Your user address:</label></li>
-          <li><span id="authorizedState">not authorized</span></li>
-          <li><span id="connectionState">disconnected</span></li>
+          <li id="connect-form">
+            <form>
+              <label for="userAddress">Your user address:</label>
+              <input type="text" id="userAddress" placeholder="yourusername@5apps.com" />
+              <input type="submit" id="connect" value="Connect to remoteStorage" />
+            </form>
+          </li>
+          <li id="connect-string">Connected as <span id="username"></span></li>
         </ul>
       </div>
 

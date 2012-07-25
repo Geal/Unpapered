@@ -78,7 +78,14 @@ html, body {
 }
 
 #intro { position:fixed; top:.5em; left:11em; z-index:11; }
-#bookmark { position:fixed; top:3em; }
+#bookmark { position:fixed; top:3em; display:none }
+
+#disconnect {
+  display: none
+}
 
 
+#connect-string {
+  display: none
+}
 
